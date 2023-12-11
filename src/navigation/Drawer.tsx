@@ -1,7 +1,8 @@
 import React from 'react';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { DrawerContentComponentProps, DrawerContentScrollView, DrawerItem, DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer';
 import Home from '../pages/Home';
 import About from '../pages/About';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 type RootDrawerParamList = {
     Home: undefined,
@@ -10,9 +11,22 @@ type RootDrawerParamList = {
 
 const Drawer = createDrawerNavigator<RootDrawerParamList>();
 
+const CustomDrawer = (props: DrawerContentComponentProps) => {
+  return (
+    <DrawerContentScrollView {...props}>
+      <DrawerItemList {...props}/>
+      <DrawerItem 
+      icon={() => <MaterialCommunityIcons name="logout" color='#1F7A8C' size={14}/>}
+      label={'Logout'} 
+      onPress={() => null }/>
+    </DrawerContentScrollView>
+  )
+}
+
 const DrawerNavigator = () => {
     return (
         <Drawer.Navigator
+        drawerContent={props => <CustomDrawer {...props}/>}
         screenOptions={
             {
               headerStyle: {
@@ -27,8 +41,18 @@ const DrawerNavigator = () => {
               drawerType: 'front',
             }
           }>
-            <Drawer.Screen name='Home' component={Home}/>
-            <Drawer.Screen name='About' component={About}/>
+            <Drawer.Screen name='Home' component={Home} options={{
+              drawerIcon: ({focused, size}) => {
+                return  focused ? <MaterialCommunityIcons name="home" color='#1F7A8C' size={size} />
+                : <MaterialCommunityIcons name="home-outline" color='#1F7A8C' size={size} /> ;
+              }
+            }}/>
+            <Drawer.Screen name='About' component={About} options={{
+              drawerIcon: ({focused, size}) => {
+                return  focused ? <MaterialCommunityIcons name="diversity_3" color='#1F7A8C' size={size} />
+                : <MaterialCommunityIcons name="diversity_3_outline" color='#1F7A8C' size={size} /> ;
+            }
+            }}/>
         </Drawer.Navigator>
     )
 }
