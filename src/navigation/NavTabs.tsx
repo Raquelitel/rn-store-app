@@ -1,12 +1,10 @@
 import React from 'react'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import { Routing } from './Routing';
-import { ShopNavigator } from './NavShop';
-import home from 'react-native-vector-icons/MaterialIcons';
-import { ImageComponent } from 'react-native';
-import { Icon } from '@gluestack-ui/themed';
-
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
+// Navigators
+import { ShopNavigator } from './NavShop';
+import DrawerNavigator from './Drawer';
 
 const Tab = createBottomTabNavigator();
 
@@ -17,8 +15,8 @@ const TabsNavigator = () => {
             headerShown: false,
         }}>
             <Tab.Screen 
-            name='Routing' 
-            component={Routing}
+            name='DrawerStack' 
+            component={DrawerNavigator}
             options={{
                 tabBarLabel:'Home',
                 tabBarIcon: ({focused, size}) => {
@@ -27,7 +25,7 @@ const TabsNavigator = () => {
                 }
             }}/>
             <Tab.Screen 
-            name='NavShop' 
+            name='NavShopStack' 
             component={ShopNavigator}
             options={{
                 tabBarLabel: 'Shop',
