@@ -15,15 +15,9 @@ import { StyleSheet } from "react-native";
 function App(): JSX.Element {
 
   return (
-  /*   <Provider store={store}> */
-    /*   <GluestackUIProvider config={config}> */
     <GestureHandlerRootView style={styles.container}>
        <RootNavigation/>
     </GestureHandlerRootView>
-    
-    /*   </GluestackUIProvider> */
-   /*  </Provider> */
-
   );
 }
 
