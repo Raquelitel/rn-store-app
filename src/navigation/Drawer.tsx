@@ -49,8 +49,8 @@ const DrawerNavigator = () => {
             }}/>
             <Drawer.Screen name='About' component={About} options={{
               drawerIcon: ({focused, size}) => {
-                return  focused ? <MaterialCommunityIcons name="diversity_3" color='#1F7A8C' size={size} />
-                : <MaterialCommunityIcons name="diversity_3_outline" color='#1F7A8C' size={size} /> ;
+                return  focused ? <MaterialCommunityIcons name="shopping" color='#1F7A8C' size={size} />
+                : <MaterialCommunityIcons name="shopping-outline" color='#1F7A8C' size={size} /> ;
             }
             }}/>
         </Drawer.Navigator>

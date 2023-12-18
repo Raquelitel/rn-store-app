@@ -1,13 +1,14 @@
 import { NavigationContainer } from "@react-navigation/native"
 import TabsNavigator from "./NavTabs"
 import { AuthNavigator } from "./Auth";
+import { useAuth } from "../store/auth/context";
 
 
 export const RootNavigation = () => {
-    const user = null;
+    const {isAuthorized} = useAuth();
     return (
         <NavigationContainer>
-            {user ? <TabsNavigator/> : <AuthNavigator/>}
+            {isAuthorized ? <TabsNavigator/> : <AuthNavigator/>}
         </NavigationContainer>
     )
 }
