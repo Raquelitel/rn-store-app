@@ -1,21 +1,11 @@
 import React from 'react'
-import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { createNativeStackNavigator, NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../navigation/Routing';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
 
-
-type AboutProps = NativeStackScreenProps<RootStackParamList, 'About'>;
-const About = ({navigation}: AboutProps) => {
+const About = () => {
   return (
     <SafeAreaView style={styles.safeAreaView}>
     <View style={styles.container}>
       <Text>About</Text>
-      <TouchableOpacity
-      style={styles.buttom}
-      onPress={() => navigation.navigate("Home")}
-      >
-        <Text style={styles.button_text}>Go Home</Text>
-      </TouchableOpacity>
     </View>
   </SafeAreaView>
   )

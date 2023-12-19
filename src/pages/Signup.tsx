@@ -1,15 +1,15 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-const Product = () => {
+const Signup = () => {
   return (
-    <View style={styles.container}>
-      <Text>Product</Text>
+    <View style={styles.container} >
+      <Text>Signup</Text>
     </View>
   )
 }
 
-export default Product
+export default Signup
 
 const styles = StyleSheet.create({
   container: {
