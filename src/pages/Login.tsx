@@ -13,8 +13,7 @@ const Login = () => {
 
   return (
     <View style={styles.container}>
-      <Text>Login</Text>
-      <Button title='Login' onPress={onHandlerForm}/>
+      <Button color='#1F7A8C' title='Click to Login' onPress={onHandlerForm}/>
     </View>
   )
 }
@@ -26,5 +25,5 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  }
+  },
 });
