@@ -5,25 +5,20 @@
  * @format
  */
 
-import { GluestackUIProvider } from "@gluestack-ui/themed";
-import { config } from "@gluestack-ui/config"
 import { RootNavigation } from "./src/navigation/Index";
 import React from "react";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { StyleSheet } from "react-native";
+import { AuthProvider } from "./src/store/auth/context";
 
 function App(): JSX.Element {
 
   return (
-  /*   <Provider store={store}> */
-    /*   <GluestackUIProvider config={config}> */
-    <GestureHandlerRootView style={styles.container}>
-       <RootNavigation/>
-    </GestureHandlerRootView>
-    
-    /*   </GluestackUIProvider> */
-   /*  </Provider> */
-
+    <AuthProvider>
+      <GestureHandlerRootView style={styles.container}>
+        <RootNavigation/>
+      </GestureHandlerRootView>
+    </AuthProvider>
   );
 }
 

@@ -3,6 +3,7 @@ import { DrawerContentComponentProps, DrawerContentScrollView, DrawerItem, Drawe
 import Home from '../pages/Home';
 import About from '../pages/About';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { useAuthentication } from '../store/auth/hooks/useAuthentication';
 
 type RootDrawerParamList = {
     Home: undefined,
@@ -12,13 +13,20 @@ type RootDrawerParamList = {
 const Drawer = createDrawerNavigator<RootDrawerParamList>();
 
 const CustomDrawer = (props: DrawerContentComponentProps) => {
+
+  const {logOut} = useAuthentication()
+
+  const onHandler = () => {
+    logOut();
+  }
+
   return (
     <DrawerContentScrollView {...props}>
       <DrawerItemList {...props}/>
       <DrawerItem 
       icon={() => <MaterialCommunityIcons name="logout" color='#1F7A8C' size={14}/>}
       label={'Logout'} 
-      onPress={() => null }/>
+      onPress={ onHandler }/>
     </DrawerContentScrollView>
   )
 }
@@ -49,8 +57,8 @@ const DrawerNavigator = () => {
             }}/>
             <Drawer.Screen name='About' component={About} options={{
               drawerIcon: ({focused, size}) => {
-                return  focused ? <MaterialCommunityIcons name="diversity_3" color='#1F7A8C' size={size} />
-                : <MaterialCommunityIcons name="diversity_3_outline" color='#1F7A8C' size={size} /> ;
+                return  focused ? <MaterialCommunityIcons name="shopping" color='#1F7A8C' size={size} />
+                : <MaterialCommunityIcons name="shopping-outline" color='#1F7A8C' size={size} /> ;
             }
             }}/>
         </Drawer.Navigator>
