@@ -8,3 +8,9 @@
 4. Copiar el .env.template y renombrarlo a .env
 5. Añadir variables de entorno
    - Firebase (www.firebase.com) Debe crear proyecto en firebase
+
+## Branch "react-context"
+Estado global de la app a través del Context de React
+
+## Branch "redux"
+Estado global de la app a través de React Redux (deprecated)

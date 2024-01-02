@@ -9,16 +9,17 @@ import { RootNavigation } from "./src/navigation/Index";
 import React from "react";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { StyleSheet } from "react-native";
-import { AuthProvider } from "./src/store/auth/context";
+import { Provider } from "react-redux";
+import { store } from "./src/store";
 
 function App(): JSX.Element {
 
   return (
-    <AuthProvider>
+    <Provider store={store}>
       <GestureHandlerRootView style={styles.container}>
         <RootNavigation/>
       </GestureHandlerRootView>
-    </AuthProvider>
+    </Provider>
   );
 }
 
