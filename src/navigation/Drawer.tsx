@@ -3,7 +3,8 @@ import { DrawerContentComponentProps, DrawerContentScrollView, DrawerItem, Drawe
 import Home from '../pages/Home';
 import About from '../pages/About';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { useAppDispatch } from '../store-redux';
+import { useAppDispatch } from '../store-toolkit';
+// import { useAppDispatch } from '../store-redux';
 import { logOut } from '../store-toolkit/features/auth/auth.slice';
 
 type RootDrawerParamList = {

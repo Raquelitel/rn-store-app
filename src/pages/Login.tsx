@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react'
 import { Alert, Button, StyleSheet, View } from 'react-native'
-import { useAppDispatch, useAppSelector } from '../store-redux'
+import { useAppDispatch, useAppSelector } from '../store-toolkit'
+// import { useAppDispatch, useAppSelector } from '../store-redux'
 import { AuthState } from '../types'
 import { logIn } from '../store-toolkit/features/auth/auth.slice'
 
 const Login = () => {
   const dispatch = useAppDispatch();
   const auth = useAppSelector<AuthState>(state => state.auth);
-
-  console.warn(auth);
 
   useEffect(() => {
     if(auth.isError) {
