@@ -10,7 +10,7 @@ import React from "react";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { StyleSheet } from "react-native";
 import { Provider } from "react-redux";
-import { store } from "./src/store";
+import { store } from "./src/store-toolkit";
 
 function App(): JSX.Element {
 

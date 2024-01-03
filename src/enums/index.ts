@@ -12,3 +12,11 @@ export enum AuthActionTypes {
     RESTORE_TOKEN_SUCCESS = 'RESTORE_TOKEN_SUCCESS',
     RESTORE_TOKEN_ERROR = 'RESTORE_TOKEN_ERROR'
 };
+
+export enum AuthActionTypesToolkit {
+    SIGN_UP = 'SIGN_UP',
+    LOG_IN = 'LOGIN',
+    LOG_OUT ='LOG_OUT',
+    RESTORE_TOKEN = 'RESTORE_TOKEN',
+
+};

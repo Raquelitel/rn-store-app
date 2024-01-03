@@ -1,22 +1,23 @@
 import React, { useEffect } from 'react'
 import { Alert, Button, StyleSheet, View } from 'react-native'
-import { useAppDispatch, useAppSelector } from '../store'
-import { AuthActionTypes } from '../enums'
-import { login } from '../store/actions/auth'
+import { useAppDispatch, useAppSelector } from '../store-redux'
 import { AuthState } from '../types'
+import { logIn } from '../store-toolkit/features/auth/auth.slice'
 
 const Login = () => {
   const dispatch = useAppDispatch();
   const auth = useAppSelector<AuthState>(state => state.auth);
 
+  console.warn(auth);
+
   useEffect(() => {
     if(auth.isError) {
-      Alert.alert('Error', 'Something went wrong')
+      Alert.alert('Error', 'Something was wrong')
     }
   }, [auth.isError])
 
   const handleSubmit = () => {
-    dispatch(login({email: 'blabla@gmail.com', password: '23442323'}))
+    dispatch(logIn({email: 'blabla@gmail.com', password: '23442323'}))
   }
   return (
     <View style={styles.container}>

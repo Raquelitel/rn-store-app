@@ -8,7 +8,7 @@ export const Home = () => {
     <SafeAreaView style={styles.safeAreaView}>
     <View style={styles.container}>
       <Text>¡Bienvenido!</Text>
-      <Text>React - redux</Text>
+      <Text>Redux TOOLKIT</Text>
     </View>
   </SafeAreaView>
   )

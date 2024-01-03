@@ -18,7 +18,7 @@ export type AuthState = {
     } | null,
     isLoading: boolean,
     isError: boolean,
-    error: string | null,
+    error: string | null | unknown,
 };
 
 export interface AuthProviderProps {
