@@ -3,7 +3,9 @@ import { DrawerContentComponentProps, DrawerContentScrollView, DrawerItem, Drawe
 import Home from '../pages/Home';
 import About from '../pages/About';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { useAuthentication } from '../store/auth/hooks/useAuthentication';
+import { useAppDispatch } from '../store-toolkit';
+// import { useAppDispatch } from '../store-redux';
+import { logOut } from '../store-toolkit/features/auth/auth.slice';
 
 type RootDrawerParamList = {
     Home: undefined,
@@ -14,10 +16,10 @@ const Drawer = createDrawerNavigator<RootDrawerParamList>();
 
 const CustomDrawer = (props: DrawerContentComponentProps) => {
 
-  const {logOut} = useAuthentication()
+  const dispatch = useAppDispatch();
 
   const onHandler = () => {
-    logOut();
+    dispatch(logOut())
   }
 
   return (

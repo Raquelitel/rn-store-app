@@ -1,10 +1,8 @@
 import { ReactNode } from 'react';
-import Signup from '../pages/Signup';
-import Login from '../pages/Login';
 import { AuthActionTypes } from '../enums';
 
 
-export interface AuthUser {
+export type AuthUser = {
     token: string
 };
 
@@ -13,16 +11,14 @@ export interface AuthUserForm {
     password: string
 };
 
-export interface AuthState {
+export type AuthState = {
     isAuthorized: boolean,
     user: {
         token: string,
     } | null,
     isLoading: boolean,
-    signUp: ({email, password}: {email: string, password: string}) => void,
-    logIn: ({email, password}: {email: string, password: string}) => void,
-    logOut: () => void,
-    restoreToken: () => void,
+    isError: boolean,
+    error: string | null | unknown,
 };
 
 export interface AuthProviderProps {
@@ -30,8 +26,16 @@ export interface AuthProviderProps {
 };
 
 export type AuthAction =
-| { type: AuthActionTypes.LOG_IN; payload: AuthUser}
-| { type: AuthActionTypes.SIGN_UP; payload: AuthUser}
-| { type: AuthActionTypes.LOG_OUT;}
-| { type: AuthActionTypes.RESTORE_TOKEN; payload: AuthUser}
+| { type: AuthActionTypes.LOG_IN_REQUEST}
+| { type: AuthActionTypes.LOG_IN_SUCCESS; payload: AuthUser}
+| { type: AuthActionTypes.LOG_IN_ERROR; payload: string}
+| { type: AuthActionTypes.SIGN_UP_REQUEST}
+| { type: AuthActionTypes.SIGN_UP_SUCCESS; payload: AuthUser}
+| { type: AuthActionTypes.SIGN_UP_ERROR; payload: string}
+| { type: AuthActionTypes.LOG_OUT_REQUEST}
+| { type: AuthActionTypes.LOG_OUT_SUCCESS}
+| { type: AuthActionTypes.LOG_OUT_ERROR; payload: string}
+| { type: AuthActionTypes.RESTORE_TOKEN_REQUEST}
+| { type: AuthActionTypes.RESTORE_TOKEN_SUCCESS; payload: AuthUser}
+| { type: AuthActionTypes.RESTORE_TOKEN_ERROR; payload: string}
 
